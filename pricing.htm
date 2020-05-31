@@ -1,0 +1,260 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<style>
+		html,
+		body {
+		  height: 100%;
+		  /* The html and body elements cannot have any padding or margin. */
+		}
+
+		/* Wrapper for page content to push down footer */
+		#wrap {
+		  min-height: 100%;
+		  height: auto;
+		  /* Negative indent footer by its height */
+		  margin: 0 auto -60px;
+		  /* Pad bottom by footer height */
+		  padding: 0 0 60px;
+		}
+
+		/* Set the fixed height of the footer here */
+		#footer {
+		  height: 60px;
+		  background-color: #f5f5f5;
+		}
+
+
+		/* Custom page CSS
+		-------------------------------------------------- */
+		/* Not required for template or sticky footer method. */
+
+		#wrap > .container {
+		  padding: 60px 15px 0;
+		}
+		.container .text-muted {
+		  margin: 20px 0;
+		}
+
+		#footer > .container {
+		  padding-left: 15px;
+		  padding-right: 15px;
+		}
+		#navBar
+		{
+			background: transparent !important;
+			border: none;
+			box-shadow: none;
+			-webkit-box-shadow: none;
+		}
+		.navbar
+		{
+			min-height: 20px !important;
+		}
+		code {
+		  font-size: 80%;
+		}
+	</style>
+    <title id="Description">Sticky Footer Navbar Template for Bootstrap and jQWidgets</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQWidgets CSS -->
+    <link href="styles/jqx.base.css" rel="stylesheet">
+    <link href="styles/jqx.bootstrap.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+
+      <!-- Fixed navbar -->
+      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div style="visibility: hidden;" id="navBar" >
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+              <li>
+                <a href="#">Dropdown</a>
+                <ul style="width: 250px;">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li type="separator"></li>
+                  <li>Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+
+      <!-- Begin page content -->
+      <div class="container">
+    <div id='jqxWidget'>
+        <div style="float: left;" id="jqxlistbox"></div>
+        <div style="margin-left: 20px; float: left;" id="jqxgrid"></div>
+    </div>
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+	<link rel="stylesheet" href="scripts/styles/jqx.base.css" type="text/css" />
+    <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="scripts/jqxcore.js"></script>
+    <script type="text/javascript" src="scripts/jqxbuttons.js"></script>
+    <script type="text/javascript" src="scripts/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="scripts/jqxmenu.js"></script>
+    <script type="text/javascript" src="scripts/jqxgrid.js"></script>
+    <script type="text/javascript" src="scripts/jqxgrid.selection.js"></script>	
+	<script type="text/javascript" src="scripts/jqxgrid.filter.js"></script>	
+	<script type="text/javascript" src="scripts/jqxgrid.sort.js"></script>		
+    <script type="text/javascript" src="scripts/jqxdata.js"></script>	
+	<script type="text/javascript" src="scripts/jqxlistbox.js"></script>	
+	<script type="text/javascript" src="scripts/jqxgrid.pager.js"></script>		
+	<script type="text/javascript" src="scripts/jqxdropdownlist.js"></script>	
+ 	<script type="text/javascript" src="scripts/demos.js"></script>
+ 	<script type="text/javascript" src="scripts/jqxgrid.columnsresize.js"></script>
+ 	 <script type="text/javascript" src="scripts/localization.js"></script>
+ 	  <script type="text/javascript" src="scripts/globalization/globalize.js"></script> 
+ 	 <script type="text/javascript" src="scripts/jqxcombobox.js"></script>
+ 	  <script type="text/javascript" src="scripts/jqxcalendar.js"></script> 
+    <script type="text/javascript" src="scripts/jqxdatetimeinput.js"></script>  
+    
+    
+    
+    
+    
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+        $("#navBar").jqxMenu({ autoSizeMainItems: true, theme: "bootstrap", showTopLevelArrows: true, width: '100%' });
+            $("#navBar").css("visibility", "visible");
+            // prepare the data
+		
+
+		var source =
+		{
+			datatype: "json",
+			datafields: [
+			{ name: 'ProImage', type: 'string'},
+			{ name: 'ProductName', type: 'string'},
+			{ name: 'CategoryName', type: 'string' },
+			{ name: 'Price', type: 'number' },
+			{ name: 'PriceDate', type: 'date' },
+			{ name: 'PriceDate', type: 'date' },
+			{ name: 'StoreName', type: 'string' }
+				
+			
+		],
+
+		
+  	
+		
+		cache: false,
+		url: 'serverfiltering_paging_and_sorting_data.php',
+		pagesize: 20,
+		filter: function()
+		{
+			// update the grid and send a request to the server.
+			$("#jqxgrid").jqxGrid('updatebounddata', 'filter');
+		},
+		sort: function()
+		{
+			// update the grid and send a request to the server.
+			$("#jqxgrid").jqxGrid('updatebounddata', 'sort');
+		},
+		root: 'Rows',
+		beforeprocessing: function(data)
+		{		
+			if (data != null)
+			{
+				source.totalrecords = data[0].TotalRows;					
+			}
+		}
+		};
+		
+		
+	 var imagerenderer = function (row, column, value) {
+                return '<img style="margin-left: 5px;" height="30" width="30" src="' + value + '"/>';
+            }
+      
+            	  
+		
+				
+		var dataadapter = new $.jqx.dataAdapter(source, {
+			loadError: function(xhr, status, error)
+			{
+				alert(error);
+			}
+		}
+		);
+	
+		// initialize jqxGrid
+		$("#jqxgrid").jqxGrid(
+		{		
+			width: 600,
+			source: dataadapter,
+			filterable: true,
+			sortable: true,
+			autoheight: true,
+			
+			 localization: getLocalization('ae'),
+	autorowheight: true,		 
+	autoheight: true,
+			
+			pageable: true,
+			virtualmode: true,
+			columnsresize: true,
+			
+			rendergridrows: function(obj)
+			{
+				return obj.data;    
+			},
+			columns: [
+				
+				
+				{ text: 'Image', datafield: 'ProImage',width: '35', cellsrenderer: imagerenderer, hidden: true  },
+				{ text: 'Item Name', datafield: 'ProductName',width: '30%' },
+				{ text: 'Brand', datafield: 'CategoryName',width: '60'},
+				{ text: 'Price', datafield: 'Price',width: '100',cellsformat: 'c2'},
+				{ text: 'Date', datafield: 'PriceDate', filtertype: 'date', width: '120', cellsformat: 'dd-MMMM-yyyy'},
+				{ text: 'Supplier', datafield: 'StoreName',width: '120'}
+				]		
+			});
+            var listSource = [{ label: 'Image', value: 'ProImage', checked: false}, { label: 'Brand', value: 'CategoryName', checked: true } ];
+
+            $("#jqxlistbox").jqxListBox({ source: listSource, width: 80, height: 80,  checkboxes: true });
+            $("#jqxlistbox").on('checkChange', function (event) {
+                $("#jqxgrid").jqxGrid('beginupdate');
+                if (event.args.checked) {
+                    $("#jqxgrid").jqxGrid('showcolumn', event.args.value);
+                }
+                else {
+                    $("#jqxgrid").jqxGrid('hidecolumn', event.args.value);
+                }
+                $("#jqxgrid").jqxGrid('endupdate');
+            });    
+                
+	});
+	        
+            
+            
+            
+            
+     
+	</script>
+  </body>
+</html>
