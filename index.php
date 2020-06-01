@@ -1,117 +1,82 @@
-<?php
-#Include the connect.php file
-include('login.php');
-?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
- 	<title id='Description'>Regency Trading Platform</title>
- 	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 	<!-- Bootstrap core CSS -->
-     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <title id="Description">Mobile Phone Prices comparison using jqWidgets and PHP</title>
+	<meta name="description" content="This app could be useful for any organization who wanted to track daily price received for an item from multiple vendors and diffrent salesmans. This small application I built for my employees to enter their received mobile phone (item) prices through whatsapp/phone calls. Before they using this app, they were depending on papers and everday at 11am they ask each other what was the best price for each model.">
+    <meta name="author" content="Riyas Rawther">
+    <!-- Bootstrap core CSS -->
+    <link href="contents/bootstrap-3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="contents/bootstrap-3.3.6/css/bootstrap-theme.min.css" rel="stylesheet" />
+    <!-- jQWidgets CSS -->
+    <link href="app/styles/jqx.base.css" rel="stylesheet">
+    <link href="app/styles/jqx.bootstrap.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <script type="text/javascript" src="app/scripts/jquery-1.11.1.min.js"></script>
+    <script src="app/scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxcore.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxexpander.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxvalidator.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxbuttons.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxcheckbox.js"></script>
+    <script type="text/javascript" src="app/scripts/globalize.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxcalendar.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxdatetimeinput.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxmaskedinput.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxlistbox.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxcombobox.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxinput.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxscrollbar.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxdata.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxchart.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxdatatable.js"></script>
 
-    
-	<link rel="stylesheet" href="styles/jqx.base.css" type="text/css" />
-	 <link rel="stylesheet" href="styles/jqx.darkblue.css" type="text/css" />
-		<link rel="stylesheet" href="styles/orange.css" type="text/css" />
-    <script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript" src="scripts/jqxexpander.js"></script>
-    <script type="text/javascript" src="scripts/jqxcore.js"></script>
-    <script type="text/javascript" src="scripts/jqxnotification.js"></script>
-    <script type="text/javascript" src="scripts/jqxbuttons.js"></script>
-    <script type="text/javascript" src="scripts/jqxscrollbar.js"></script>
-    <script type="text/javascript" src="scripts/jqxmenu.js"></script>
-    <script type="text/javascript" src="scripts/jqxgrid.js"></script>
-    <script type="text/javascript" src="scripts/jqxgrid.selection.js"></script>	
-	<script type="text/javascript" src="scripts/jqxgrid.filter.js"></script>	
-	<script type="text/javascript" src="scripts/jqxgrid.sort.js"></script>		
-    <script type="text/javascript" src="scripts/jqxdata.js"></script>	
-	<script type="text/javascript" src="scripts/jqxlistbox.js"></script>	
-	<script type="text/javascript" src="scripts/jqxgrid.pager.js"></script>		
-	<script type="text/javascript" src="scripts/jqxdropdownlist.js"></script>	
- 	<script type="text/javascript" src="scripts/demos.js"></script>
- 	<script type="text/javascript" src="scripts/jqxgrid.columnsresize.js"></script>
- 	 <script type="text/javascript" src="scripts/localization.js"></script>
- 	  <script type="text/javascript" src="scripts/jqxlistbox.js"></script> 
- 	    <script type="text/javascript" src="scripts/jqxbuttons.js"></script>
-    <script type="text/javascript" src="scripts/jqxscrollbar.js"></script>
-    <script type="text/javascript" src="scripts/jqxlistbox.js"></script>
-    <script type="text/javascript" src="scripts/jqxcombobox.js"></script>
-    <script type="text/javascript" src="scripts/jqxgrid.js"></script>
-    <script type="text/javascript" src="scripts/jqxgrid.selection.js"></script>
-    <script type="text/javascript" src="scripts/jqxmenu.js"></script>
-
-
-        <script type="text/javascript" src="scripts/jqxgrid.filter.js"></script>
-    <script type="text/javascript" src="scripts/jqxgrid.sort.js"></script>
-    <script type="text/javascript" src="scripts/jqxgrid.pager.js"></script>
-    <script type="text/javascript" src="scripts/jqxdraw.js"></script>
-     <script type="text/javascript" src="scripts/jqxchart.js"></script>
-         <script type="text/javascript" src="scripts/jqxwindow.js"></script>
-    <script type="text/javascript" src="scripts/jqxdocking.js"></script>
- <style>
-		
-		body {
-		  height: 100%;
-		  /* The html and body elements cannot have any padding or margin. */
-		}
-
-		/* Wrapper for page content to push down footer */
-		#wrap {
-		  min-height: 100%;
-		  height: auto;
-		  /* Negative indent footer by its height */
-		  margin: 0 auto -60px;
-		  /* Pad bottom by footer height */
-		  padding: 0 0 60px;
-		}
-
-		/* Set the fixed height of the footer here */
-		#footer {
-		  height: 60px;
-		  background-color: #f5f5f5;
-		}
-
-
-		/* Custom page CSS
-		-------------------------------------------------- */
-		/* Not required for template or sticky footer method. */
-
-		#wrap > .container {
-		  padding: 60px 15px 0;
-		}
-		.container .text-muted {
-		  margin: 20px 0;
-		}
-
-		#footer > .container {
-		  padding-left: 15px;
-		  padding-right: 15px;
-		}
-		#navBar
-		{
-			background: transparent !important;
-			border: none;
-			box-shadow: none;
-			-webkit-box-shadow: none;
-		}
-		.navbar
-		{
-			min-height: 20px !important;
-		}
-		code {
-		  font-size: 80%;
-		}
-	</style>	
- 	
-    <script type="text/javascript">
-	$(document).ready(function () {
+	<script type="text/javascript" src="app/scripts/localization.js"></script>
+	<script type="text/javascript" src="app/scripts/jqxgrid.js"></script>
+    <script type="text/javascript" src="app/scripts/jqxgrid.selection.js"></script>	
+	<script type="text/javascript" src="app/scripts/jqxgrid.filter.js"></script>	
+	<script type="text/javascript" src="app/scripts/jqxgrid.sort.js"></script>	
+	<script type="text/javascript" src="app/scripts/jqxgrid.pager.js"></script>	
+	<script type="text/javascript" src="app/scripts/jqxgrid.columnsresize.js"></script>
+	<script type="text/javascript" src="app/scripts/jqxgrid.selection.js"></script>
+	<script type="text/javascript" src="app/scripts/jqxlistbox.js"></script> 
+	<script type="text/javascript" src="app/scripts/jqxdropdownlist.js"></script>
+	<script type="text/javascript" src="app/scripts/jqxmenu.js"></script>
 	
-	  $("#navBar").jqxMenu({ autoSizeMainItems: true, theme: "bootstrap", showTopLevelArrows: true, width: '100%' });
-            $("#navBar").css("visibility", "visible");
-		// prepare the data
-		
-$('#docking').jqxDocking({ theme: 'darkblue', width:720 });
+    <script type="text/javascript" src="scripts/jqxcombobox.js"></script>
+    <style type="text/css">
+        body, html {
+            height: 100%;
+            padding: 0px;
+            margin: 0px;
+            width: 100%;
+            border: none;
+            overflow: hidden;
+        }
+
+        .required {
+            vertical-align: baseline;
+            color: red;
+            font-size: 10px;
+        }
+
+        .control-label {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+   <script type="text/javascript">
+	$(document).ready(function () {
+	  // set jQWidgets Theme to "Bootstrap"
+            $.jqx.theme = "bootstrap";
+           
+
+
+
 		var source =
 		{
 			datatype: "json",
@@ -140,7 +105,7 @@ $('#docking').jqxDocking({ theme: 'darkblue', width:720 });
 		
 		
 		cache: false,
-		url: 'new_serverfiltering_paging_and_sorting_data.php',
+		url: 'data_grid.php',
 		pagesize: 15,
 		filter: function()
 		{
@@ -182,7 +147,7 @@ $('#docking').jqxDocking({ theme: 'darkblue', width:720 });
 		$("#jqxgrid").jqxGrid(
 		{		
 			 theme: 'darkblue',
-			width: 670,
+			width: '100%',
 			source: dataadapter,
 			filterable: true,
 			sortable: true,
@@ -209,14 +174,14 @@ $('#docking').jqxDocking({ theme: 'darkblue', width:720 });
 				
 				
 			
-				{ text: 'Item Name', datafield: 'ProductName',width: '150' },
-				{ text: 'Brand', datafield: 'CategoryName',width: '58'},
-				{ text: 'Price', datafield: 'Price',width: '90',cellsformat: 'c2'},
-				{ text: 'Date', datafield: 'PriceDate', filtertype: 'date', width: '105', cellsformat: 'dd-M-yyyy'},
-				{ text: 'Supplier', datafield: 'StoreName',width: '115'},
-				{ text: 'From', datafield: 'CountryName',width: '50'},
-				{ text: 'Spec', datafield: 'SpecName',width: '50'},
-				{ text: 'Color', datafield: 'color',width: '50'}
+				{ text: 'Item Name', datafield: 'ProductName', width: 'auto'  },
+				{ text: 'Brand', datafield: 'CategoryName',width: 'auto'},
+				{ text: 'Price', datafield: 'Price',width: 'auto',cellsformat: 'c2'},
+				{ text: 'Date', datafield: 'PriceDate', filtertype: 'date', width: 'auto', cellsformat: 'dd-M-yyyy'},
+				{ text: 'Supplier', datafield: 'StoreName',width: 'auto'},
+				{ text: 'From', datafield: 'CountryName',width: 'auto'},
+				{ text: 'Spec', datafield: 'SpecName',width: 'auto'},
+				{ text: 'Color', datafield: 'color',width: 'auto'}
 				]		
 			});
           
@@ -243,8 +208,8 @@ $('#docking').jqxDocking({ theme: 'darkblue', width:720 });
 
 			{ name: 'Name', type: 'string'}
 			],
-			url: "combobox_and_grid_employees.php",
-			async: false
+			url: "data_products.php",
+			//async: false
 		};
 
 		var employeesDataAdapter = new $.jqx.dataAdapter(employeeSource);
@@ -258,7 +223,7 @@ $('#docking').jqxDocking({ theme: 'darkblue', width:720 });
 			height: 25,
 			source: employeesDataAdapter,
 			
-			promptText: 'Select an Item',
+			promptText: 'Select a Prod',
 			selectedIndex: -1,
 			displayMember: 'ProductName',
 			valueMember: 'idProducts'
@@ -291,7 +256,7 @@ $('#docking').jqxDocking({ theme: 'darkblue', width:720 });
 				type: 'POST',
 				data: {fkProductID:employeeID},
 				
-				url: "combobox_and_grid_orders.php"
+				url: "app/combobox_and_grid_orders.php"
 				
    
 			};
@@ -395,72 +360,34 @@ var dataAdapterChart = new $.jqx.dataAdapter(ordersSource,
 		
 	});
     </script>
-</head>
-
-<body class='default'>
-
-     <!-- Fixed navbar -->
-      <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-          <div style="visibility: hidden;" id="navBar" >
-            <ul>
-              <li><a href="http://regencyplus.ae/trading-platform">Home</a></li>
-              <li><a href="update-price.php">Update Price</a></li>
-              
-              <li>
-                <a href="#">Add</a>
-                <ul style="width: 250px;">
-                  <li><a href="new-supplier.php">New Supplier</a></li>
-                  <li><a href="new-product.php">New Product</a></li>
-                  
-                
-                </ul>
-                <li><a href="http://regencyplus.ae/contact-us">Contact</a></li>
-              </li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div>
-      </div><br /><br />
-
-
-
-
-
+   <div style="min-height: 40px; box-shadow: none; -webkit-box-shadow: none;" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <ul id="myTab" style="min-width: 480px; box-shadow: none; -webkit-box-shadow: none; border: none;" class="nav nav-tabs">
+            <li style="margin-left: 20px;" class="active">
+			
+            <li><a data-tab="grid" href="#grid">Price Comparison Table</a></li>
+            <li><a data-tab="charts" href="#charts">Price Comparison Chart</a></li>
+        </ul>
+    </div>
+    <div style="padding-top: 40px; width: 100%; height: 100%;">
         
-    </div>
- 
- 
- 
-
-
-
-
-
-<div id="docking">
-        <div>
-            <div id="window1" style="height: 500px; width: 720px;">
-                <div>
-                   Daily Price Table</div>
-                <div>
-                        <div  id="jqxlistbox"></div>
-        <div style="margin-left: 10px; float: left;" id="jqxgrid"></div></div>
-            </div>
-            <div id="window2" style="height: auto; width: 100px;">
-                <div>
-                    Chart - Lowest price of an Item and the supplier each month...</div>
-                <div>
-                    Select a product to find the best price of a month and the supplier...
-                    <div id="jqxcombobox"></div>
-		<div id="grid"></div>
-		<div style="width:690px; height:400px" id="jqxChart"></div>
-<div >
-
-                <input id="pngButton" type="button" value="Save as an Image" />
-            </div>
+        
+       
+	<!-- Grid tab -->		
+		
+		<div id="grid" style="width: 100%; height: 100%;" class="pane">
+           <h6>You can filter/sort each columns</h6>
+			 <div style="margin-left: 10px; float: left;" id="jqxgrid"></div>
 		</div>
-            </div>
+	<!-- Chart tab -->	
+		
+		<div id="charts" style="width: 100%; height: 100%;" class="pane">
+           <h6>Chart</h6>
+			  <div id="jqxcombobox"></div>
+			  <div style="width:690px; height:400px" id="jqxChart"></div>
+			  <input id="pngButton" type="button" value="Save as an Image" />
+		</div>
+		
+		
         </div>
     </div>
-
-
 </html>
