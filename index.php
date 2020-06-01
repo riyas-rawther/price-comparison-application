@@ -209,7 +209,7 @@
 			{ name: 'Name', type: 'string'}
 			],
 			url: "data_products.php",
-			//async: false
+			async: false
 		};
 
 		var employeesDataAdapter = new $.jqx.dataAdapter(employeeSource);
@@ -223,7 +223,7 @@
 			height: 25,
 			source: employeesDataAdapter,
 			
-			promptText: 'Select a Prod',
+			promptText: 'Select a Product',
 			selectedIndex: -1,
 			displayMember: 'ProductName',
 			valueMember: 'idProducts'
@@ -256,7 +256,7 @@
 				type: 'POST',
 				data: {fkProductID:employeeID},
 				
-				url: "app/combobox_and_grid_orders.php"
+				url: "data_chart.php"
 				
    
 			};

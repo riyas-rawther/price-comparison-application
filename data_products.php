@@ -20,9 +20,9 @@ if (mysqli_connect_errno())
 	/* fetch values */
 	while ($result->fetch())
 		{
-		$employees[] = array(
+		$products[] = array(
 			'idProducts' => $idProducts,
 			'ProductName' => $ProductName
 		);}
-	echo json_encode($employees);
+	echo json_encode($products);
 	?>
